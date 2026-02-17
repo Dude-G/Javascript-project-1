@@ -52,12 +52,36 @@ body {
     background: var(--bg);
     min-height: 100vh;
     color: var(--text);
-    transition: background 0.9s;
+    transition: background 3.2s;
     padding: 30px 15px;
     display: flex;
     justify-content: center;
 }
 
+
+.edit-input {
+    flex: 1;
+    padding: 4px 8px;
+    font-size: 1.08rem;
+    border: 2px solid #667eea;
+    border-radius: 6px;
+    background: white;
+    color: #333;
+    outline: none;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+[data-theme="dark"] .edit-input {
+    background: #2d3748;
+    color: #e2e8f0;
+    border-color: #a78bfa;
+}
+
+.edit-input:focus {
+    border-color: #5a67d8;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.25);
+}
 
 
 .theme-btn {
@@ -161,6 +185,11 @@ ul#taskList {
     flex: 1;
     font-size: 1.08rem;
     cursor: pointer;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    min-width: 0;
+
 }
 
 .task-item button {
