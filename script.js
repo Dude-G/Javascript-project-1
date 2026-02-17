@@ -12,7 +12,7 @@ const themeToggle = document.getElementById("themeToggle");
 let tasks = [];
 let currentFilter = "all";
 
-// ────────────────────────────────────────────────
+
 function loadTasks() {
     const saved = localStorage.getItem("myTodoTasks");
     if (saved) {
@@ -94,7 +94,7 @@ function renderTasks() {
     updateStatsAndEmptyState();
 }
 
-// ────────────────────────────────────────────────
+
 function addTask() {
     const text = taskInput.value.trim();
 
@@ -119,8 +119,7 @@ function addTask() {
     console.log("Added new task:", text);
 }
 
-// ────────────────────────────────────────────────
-// Event Listeners
+
 addBtn.addEventListener("click", addTask);
 
 taskInput.addEventListener("keypress", e => {
