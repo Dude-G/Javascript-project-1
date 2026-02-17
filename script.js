@@ -1,13 +1,8 @@
 console.log("To-Do script loaded successfully!");
 
-const taskInput   = document.getElementById("taskInput");
-const addBtn      = document.getElementById("addBtn");
-const taskList    = document.getElementById("taskList");
-const pendingCount = document.getElementById("pendingCount");
-const clearCompleted = document.getElementById("clearCompleted");
-const emptyMessage = document.getElementById("emptyMessage");
-const filterButtons = document.querySelectorAll(".filter-btn");
-const themeToggle = document.getElementById("themeToggle");
+
+
+
 
 let tasks = [];
 let currentFilter = "all";
@@ -22,10 +17,15 @@ function loadTasks() {
     renderTasks();
 }
 
+const taskInput   = document.getElementById("taskInput");
+const addBtn      = document.getElementById("addBtn");
 function saveTasks() {
     localStorage.setItem("myTodoTasks", JSON.stringify(tasks));
     console.log("Tasks saved");
 }
+const taskList    = document.getElementById("taskList");
+const pendingCount = document.getElementById("pendingCount");
+const clearCompleted = document.getElementById("clearCompleted");
 
 function updateStatsAndEmptyState() {
     const pending = tasks.filter(t => !t.completed).length;
@@ -33,6 +33,10 @@ function updateStatsAndEmptyState() {
 
     emptyMessage.classList.toggle("show", tasks.length === 0);
 }
+
+const emptyMessage = document.getElementById("emptyMessage");
+const filterButtons = document.querySelectorAll(".filter-btn");
+const themeToggle = document.getElementById("themeToggle");
 
 function createTaskElement(task) {
     const li = document.createElement("li");
