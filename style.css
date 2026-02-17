@@ -30,21 +30,21 @@ h1 {
 
 
 :root {
-    --bg: linear-gradient(135deg, #667eea, #764ba2);
-    --card-bg: white;
-    --text: #333;
-    --input-border: #ddd;
-    --primary: #667eea;
-    --primary-dark: #5a67d8;
+    --bg: linear-gradient(135deg, #fef3c7, #d1fae5);
+    --card-bg: #ffffff;
+    --text: #1f2937;
+    --input-border: #d1d5db;
+    --primary: #d97706;
+    --primary-dark: #b45309;
 }
 
 [data-theme="dark"] {
-    --bg: #1a1a2e;
-    --card-bg: #16213e;
-    --text: #e0e0e0;
-    --input-border: #444;
-    --primary: #a78bfa;
-    --primary-dark: #9167e0;
+    --bg: #1e1b16;
+    --card-bg: #2d2a24;
+    --text: #e5e7eb;
+    --input-border: #4b5563;
+    --primary: #fbbf24;
+    --primary-dark: #d97706;
 }
 
 body {
