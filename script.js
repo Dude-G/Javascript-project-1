@@ -59,19 +59,45 @@ function createTaskElement(task) {
         renderTasks();
     });
 
-    
+   
     li.querySelector(".btn-edit").addEventListener("click", () => {
-        const newText = prompt("Edit your task:", task.text);
-        if (newText !== null) {
-            const trimmed = newText.trim();
-            if (trimmed) {
-                task.text = trimmed;
-                saveTasks();
-                renderTasks();
-            } else {
-                alert("Task cannot be empty!");
+        const textSpan = li.querySelector(".task-text");
+        const originalText = task.text;
+
+        const editInput = document.createElement("input");
+        editInput.type = "text";
+        editInput.value = originalText;
+        editInput.className = "edit-input";
+
+        editInput.style.width = textSpan.offsetWidth + "px";
+
+        li.replaceChild(editInput, textSpan);
+
+        editInput.focus();
+        editInput.select();
+
+        const finishEdit = (shouldSave = true) => {
+            if (shouldSave) {
+                const newText = editInput.value.trim();
+                if (newText !== "") {
+                    if (newText !== originalText) {
+                        task.text = newText;
+                        saveTasks();
+                    }
+                }
             }
-        }
+            renderTasks();
+        };
+
+        editInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") finishEdit(true);
+        });
+
+        editInput.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") finishEdit(false);
+        });
+
+        editInput.addEventListener("blur", () => finishEdit(true));
     });
 
     return li;
@@ -157,6 +183,6 @@ if (savedTheme) {
     themeToggle.textContent = savedTheme === "dark" ? "☀️" : "🌙";
 }
 
-// Start 
+
 loadTasks();
 
